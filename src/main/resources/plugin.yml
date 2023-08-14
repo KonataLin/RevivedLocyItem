@@ -1,0 +1,9 @@
+name: RevivedLocyItem
+main: com.locydragon.rli.RevivedLocyItem
+version: 1.2.3
+author: LocyDragon
+depend: [PlaceholderAPI,ProtocolLib]
+commands:
+  rli:
+  rlitem:
+  revivedlocyitem:
