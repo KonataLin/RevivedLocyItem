@@ -1,4 +1,4 @@
-![Static Badge](https://img.shields.io/badge/author%2CLocyDragon%2Cred)
+![ ](https://img.shields.io/badge/author-LocyDragon-blue)   ![ ](https://img.shields.io/badge/license-GPL3-red)
 
 # RevivedLocyItem
 
