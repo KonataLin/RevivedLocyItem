@@ -1,4 +1,4 @@
-![ ](https://img.shields.io/badge/author-LocyDragon-blue)   ![ ](https://img.shields.io/badge/license-GPL3-red)
+![ ](https://img.shields.io/badge/author-LocyDragon-blue)        ![ ](https://img.shields.io/badge/license-GPL3-red)
 
 # RevivedLocyItem
 
