@@ -30,11 +30,18 @@ public class ParticleUnit {
 
 	private Vector<ParticleJob> jobList = new Vector<>();
 
+	/**创建一个ParticleUnit对象
+	 * @param name ParticleUnit对象ID
+	 * @param origin ParticleUnit运行的坐标系的中心相对坐标
+	 */
 	public ParticleUnit(String name, LocationModel origin) {
 		this.name = name;
 		this.centre = origin;
 	}
 
+	/**加载
+	 * @param effects 参数，这些参数与粒子效果模块配置文件里头的particles中内容一致
+	 */
 	public void load(List<String> effects) {
 		for (String obj : effects) {
 			LangReader line = new LangReader(obj);
@@ -136,6 +143,10 @@ public class ParticleUnit {
 		this.jobList = newVector;
 	}
 
+	/**绘画一个粒子效果组
+	 * @param centre 坐标中心
+	 * @param eyeLoc 眼睛朝向，需要通过Player.getEyeLocation().toDirection()来获取
+	 */
 	public void draw(org.bukkit.Location centre, org.bukkit.util.Vector eyeLoc) {
 		org.bukkit.util.Vector[] vectorsBasis = VectorCalculator2D3D
 				.calculateBasisVector(centre, eyeLoc, this.headCoordinateSystem);

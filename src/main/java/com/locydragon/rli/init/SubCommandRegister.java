@@ -14,5 +14,6 @@ public class SubCommandRegister {
 		CommandDiverter.addSubBasicCommand(new SkillPlayerCmd());
 		CommandDiverter.addSubBasicCommand(new ItemListCmd());
 		CommandDiverter.addSubBasicCommand(new HelpCmd());
+		CommandDiverter.addSubBasicCommand(new AsItemCmd());
 	}
 }

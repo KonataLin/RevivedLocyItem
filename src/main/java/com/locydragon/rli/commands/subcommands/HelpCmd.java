@@ -25,6 +25,7 @@ public class HelpCmd implements SubCmd {
         commandSender.sendMessage(Colors.color("&b/rli skill [技能组名称] &7——播放一个技能组吧!"));
         commandSender.sendMessage(Colors.color("&b/rli version &7——查看当前插件版本吧!"));
         commandSender.sendMessage(Colors.color("&b/rli reload &7——重载插件吧!"));
+        commandSender.sendMessage(Colors.color("&b/rli as [物品ID名称] &7——&c将手上的物品赋予LocyItem的特征"));
         commandSender.sendMessage(Colors.color("&8&lTip: &b查看Rli官方Wiki获取更多…… &3&l↓↓↓"));
         commandSender.sendMessage(Colors.color(""));
         TextComponent message = new TextComponent(Colors.color("&f[&6&l点我跳转&f]"));

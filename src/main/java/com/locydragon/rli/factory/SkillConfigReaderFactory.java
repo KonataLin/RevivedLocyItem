@@ -15,6 +15,9 @@ public class SkillConfigReaderFactory {
 			for (String skillLine : config.getStringList(key + ".Skills")) {
 				unit.addSkill(skillLine);
 			}
+			for (String conditionLine : config.getStringList(key + ".conditions")) {
+				unit.addCondition(conditionLine);
+			}
 			LocyItemAPI.registerSkillUnit(unit);
 		}
 		return find;

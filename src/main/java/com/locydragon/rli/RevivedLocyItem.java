@@ -35,6 +35,8 @@ public class RevivedLocyItem extends JavaPlugin {
 		configMaster.initConfig();
 		/** 注册指令 **/
 		new ListenerRegisters(this).registerListeners();
+		/** 注册条件事件 **/
+		new ConditionRegisters().init();
 		/** 注册指令呀 **/
 		Bukkit.getPluginCommand("rli").setExecutor(new CommandDiverter());
 		Bukkit.getPluginCommand("rlitem").setExecutor(new CommandDiverter());

@@ -1,13 +1,13 @@
 prefix: "&7[&bRevivedLocyItem&7]"
-InfoSync: true #æ˜¾ç¤ºç‰©å“åŒæ­¥ä¿¡æ¯
-SyncDelay: 5 #åŒæ­¥çš„ç§’æ•°é—´éš”(ç§’)ï¼Œæ”¹æˆ-1å°±ä¸åŒæ­¥
-Lang: #è¯­è¨€ä¿¡æ¯
+InfoSync: true #ÏÔÊ¾ÎïÆ·Í¬²½ĞÅÏ¢
+SyncDelay: 5 #Í¬²½µÄÃëÊı¼ä¸ô(Ãë)£¬¸Ä³É-1¾Í²»Í¬²½
+Lang: #ÓïÑÔĞÅÏ¢
   lang-EncodeSet: ""
-  lang-ShowVersion: "&aRevivedLocyItem-{version} æ’ä»¶å·²ç»åœ¨æ‚¨çš„æœåŠ¡å™¨ä¸ŠåŠ è½½äº†.(*^â–½^*)"
-  lang-illegal: "ç‰©å“{item}åœ¨{where}å¤„å†™é”™äº†![â—‹ï½¥ï½€Ğ”Â´ï½¥ â—‹]"
-  lang-GetItem: "{prefix}&cè¯·ä½¿ç”¨/rli item [ç‰©å“IDåç§°] â€”â€”æ¥è·å¾—ä¸€ä¸ªRPGç‰©å“å§!(*^â–½^*)"
-  lang-NotFound: "{prefix}&cå¯¹ä¸èµ·ï¼Œæ²¡æœ‰æ‰¾åˆ°è¿™ä¸ªIDå‘¢[â—‹ï½¥ï½€Ğ”Â´ï½¥ â—‹]."
-  lang-Reload: "{prefix}&cé‡è½½é…ç½®æ–‡ä»¶æˆåŠŸ(*^â–½^*)"
-  lang-Sync: "&båŒæ­¥äº†{amount}ä¸ªRPGç‰©å“â€¦â€¦"
-  lang-Particle: "{prefix}&cè¯·ä½¿ç”¨/rli p [ç²’å­æ•ˆæœåç§°] â€”â€”åœ¨ä½ çš„è„šä¸‹æ¼”ç¤ºä¸€ä¸ªç²’å­æ•ˆæœ!"
-  lang-Skill: "{prefix}&cè¯·ä½¿ç”¨/rli skill [æŠ€èƒ½ç»„åç§°] â€”â€”æ’­æ”¾ä¸€ä¸ªæŠ€èƒ½ç»„å§!"
+  lang-ShowVersion: "&aRevivedLocyItem-{version} ²å¼şÒÑ¾­ÔÚÄúµÄ·şÎñÆ÷ÉÏ¼ÓÔØÁË."
+  lang-illegal: "ÎïÆ·{item}ÔÚ{where}´¦Ğ´´íÁË!"
+  lang-GetItem: "{prefix}&cÇëÊ¹ÓÃ/rli item [ÎïÆ·IDÃû³Æ] ¡ª¡ªÀ´»ñµÃÒ»¸öRPGÎïÆ·°É!"
+  lang-NotFound: "{prefix}&c¶Ô²»Æğ£¬Ã»ÓĞÕÒµ½Õâ¸öIDÄØ."
+  lang-Reload: "{prefix}&cÖØÔØÅäÖÃÎÄ¼ş³É¹¦."
+  lang-Sync: "&bÍ¬²½ÁË{amount}¸öRPGÎïÆ·¡­¡­"
+  lang-Particle: "{prefix}&cÇëÊ¹ÓÃ/rli p [Á£×ÓĞ§¹ûÃû³Æ] ¡ª¡ªÔÚÄãµÄ½ÅÏÂÑİÊ¾Ò»¸öÁ£×ÓĞ§¹û!"
+  lang-Skill: "{prefix}&cÇëÊ¹ÓÃ/rli skill [¼¼ÄÜ×éÃû³Æ] ¡ª¡ª²¥·ÅÒ»¸ö¼¼ÄÜ×é°É!"

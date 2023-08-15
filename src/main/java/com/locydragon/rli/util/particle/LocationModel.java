@@ -16,6 +16,9 @@ public class LocationModel {
 		this.z = loc.getZ();
 	}
 
+	/**通过三个参数，如(1,2,3)创建LocationModel实例
+	 * @param code 参数
+	 */
 	public LocationModel(String code) {
 		code = code.trim().replace("(", "").replace(")", "");
 		this.x = Double.valueOf(code.split(",")[0]);

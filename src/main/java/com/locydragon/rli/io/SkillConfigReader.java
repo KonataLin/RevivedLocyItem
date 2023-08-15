@@ -53,6 +53,10 @@ public class SkillConfigReader {
 				config.set("ExampleSkill.cooldown", 10);
 				config.set("ExampleSkill.wait",
 						"&7>>> &bPlease wait for {cd}s so that you can use skill again!");
+				config.set("ExampleSkill.conditions",
+						ListBuilder.buildList("random ~ value=0.75;fail=&cThis skill is executed 75% of the time",
+								"compare ~ value=1 > 0;fail=&c&lThis will never happen.",
+								"compare ~ value=Test equals test;fail=&c&lThis will never happen."));
 				config.set("ExampleSkill.Skills", ListBuilder.buildList("msg ~ m=&7Chug! Chug!", "particle ~ name=Star"
 				, "lightning ~", "delay ~ 1000", "launch ~ type=FireBall;d=15", "push ~ dp=-1.6;dh=0.8"));
 
