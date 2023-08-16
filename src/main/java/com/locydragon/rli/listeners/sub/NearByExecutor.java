@@ -46,7 +46,7 @@ public class NearByExecutor implements Listener {
 						if (!newEvent.isCancelled()) {
 							entity.setMetadata("rli-damage"
 									, new FixedMetadataValue(RevivedLocyItem.instance, true));
-							entity.damage(event.getDamage(), e.getPlayer());
+							entity.damage(newEvent.getDamage());
 							entity.removeMetadata("rli-damage", RevivedLocyItem.instance);
 							entity.setLastDamageCause(newEvent);
 						}

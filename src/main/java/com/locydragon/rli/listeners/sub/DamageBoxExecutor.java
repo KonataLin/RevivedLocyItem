@@ -21,6 +21,8 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.metadata.MetadataValue;
 
+import javax.swing.text.html.Option;
+
 public class DamageBoxExecutor implements Listener {
     @EventHandler
     public void onExecute(SkillExecuteEvent e) {
@@ -80,7 +82,7 @@ public class DamageBoxExecutor implements Listener {
                     if (!newEvent.isCancelled()) {
                         entity.setMetadata("rli-damage"
                                 , new FixedMetadataValue(RevivedLocyItem.instance, true));
-                        entity.damage(event.getDamage(), e.getPlayer());
+                        entity.damage(newEvent.getDamage());
                         entity.removeMetadata("rli-damage", RevivedLocyItem.instance);
                         entity.setLastDamageCause(newEvent);
                     }

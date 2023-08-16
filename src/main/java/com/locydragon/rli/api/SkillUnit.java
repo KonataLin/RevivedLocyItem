@@ -13,6 +13,10 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
+/**技能组类
+ * @author LocyDragon
+ * @version 1.3.3
+ */
 public class SkillUnit {
 	private static Executor executor = Executors.newCachedThreadPool();
 
@@ -28,24 +32,40 @@ public class SkillUnit {
 		this.outMessage = outMessage;
 	}
 
+	/**添加一个技能
+	 * @param param 技能指令（与配置文件中一致）
+	 */
 	public void addSkill(String param) {
 		skills.add(param);
 	}
 
+	/**添加一个条件
+	 * @param param 条件指令（与配置文件中一致）
+	 */
 	public void addCondition(String param) { conditions.add(param); }
 
+	/**获取ID
+	 */
 	public String getName() {
 		return this.name;
 	}
 
+	/**获取冷却时间
+	 */
 	public int getCoolDown() {
 		return this.coolDown;
 	}
 
+	/**获取CD消息
+	 */
 	public String getCDMessage() {
 		return this.outMessage;
 	}
 
+	/**给玩家执行这个技能组
+	 * @param who 目标玩家
+	 * @param onItem 执行的LocyItem（可以为null）
+	 */
 	public void run(Player who, LocyItem onItem) {
 		executor.execute(() -> {
 			//DO:Check Conditions

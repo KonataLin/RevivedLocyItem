@@ -12,6 +12,10 @@ import java.util.Vector;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
+/**粒子效果组类
+ * @author LocyDragon
+ * @version 1.3.3
+ */
 public class ParticleUnit {
 	public static Executor executor = Executors.newCachedThreadPool();
 

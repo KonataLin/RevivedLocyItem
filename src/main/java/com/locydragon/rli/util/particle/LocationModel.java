@@ -1,5 +1,9 @@
 package com.locydragon.rli.util.particle;
 
+/**坐标模型类
+ * @author LocyDragon
+ * @version 1.3.3
+ */
 public class LocationModel {
 	public double x;
 	public double y;
@@ -26,6 +30,8 @@ public class LocationModel {
 		this.z = Double.valueOf(code.split(",")[2]);
 	}
 
+	/**完全克隆本LocationModel对象
+	 */
 	public LocationModel clone() {
 		return new LocationModel(this.x, this.y, this.z);
 	}

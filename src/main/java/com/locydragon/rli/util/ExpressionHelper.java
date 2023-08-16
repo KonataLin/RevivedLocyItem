@@ -5,7 +5,16 @@ import org.bukkit.entity.Player;
 
 import java.text.NumberFormat;
 
+/**表达式处理类类
+ * @author LocyDragon
+ * @version 1.3.3
+ */
 public class ExpressionHelper {
+	/**处理表达式
+	 * @param who 处理的玩家
+	 * @param param 处理的表达式
+	 * @return 结果
+	 */
 	public static double run(Player who, String param) {
 		return new Calculator().calculate(who, PlaceholderAPI.setPlaceholders(who, param));
 	}

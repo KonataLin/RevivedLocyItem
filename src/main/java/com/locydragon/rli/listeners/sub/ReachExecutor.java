@@ -38,13 +38,12 @@ public class ReachExecutor implements Listener {
 
 				EntityDamageByEntityEvent newEvent = new EntityDamageByEntityEvent(e.getPlayer(), target
 						, EntityDamageEvent.DamageCause.ENTITY_ATTACK, event.getDamage());
-				OptionDamage.moTVector.clear();
 				OptionDamage.moTVector.add(newEvent.hashCode());
 				Bukkit.getPluginManager().callEvent(newEvent);
 				if (!newEvent.isCancelled()) {
 					target.setMetadata("rli-damage"
 							, new FixedMetadataValue(RevivedLocyItem.instance, true));
-					target.damage(event.getDamage(), e.getPlayer());
+					target.damage(newEvent.getDamage());
 					target.removeMetadata("rli-damage", RevivedLocyItem.instance);
 					target.setLastDamageCause(newEvent);
 				}

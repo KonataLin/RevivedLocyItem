@@ -8,6 +8,7 @@ import com.locydragon.rli.listeners.InteractFatherListener;
 import com.locydragon.rli.listeners.heat.HeatFatherListener;
 import com.locydragon.rli.listeners.heat.sub.*;
 import com.locydragon.rli.listeners.sub.*;
+import com.locydragon.rli.util.old.VersionHelper;
 import com.locydragon.rli.util.secure.DisadvantageOpDefender;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
@@ -46,6 +47,7 @@ public class ListenerRegisters {
 		registerEventForBukkit(new LineHeat());
 		registerEventForBukkit(new LightningHeat());
 		registerEventForBukkit(new PushHeat());
+		registerEventForBukkit(new VersionHelper());
 	}
 
 	public void registerEventForBukkit(Listener listener) {

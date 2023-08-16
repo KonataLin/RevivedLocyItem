@@ -5,6 +5,7 @@ import com.comphenix.protocol.ProtocolManager;
 import com.locydragon.rli.commands.CommandDiverter;
 import com.locydragon.rli.init.*;
 import com.locydragon.rli.runnable.ItemSyncRunnable;
+import com.locydragon.rli.util.old.VersionHelper;
 import com.locydragon.rli.util.particle.ParticleEffect;
 import com.locydragon.rli.util.secure.OpCmdExecutor;
 import org.bukkit.Bukkit;
@@ -24,6 +25,7 @@ public class RevivedLocyItem extends JavaPlugin {
 
 	@Override
 	public void onEnable() {
+		instance = this;
 		/** Init **/
 		ParticleEffect.values();
 
@@ -45,7 +47,6 @@ public class RevivedLocyItem extends JavaPlugin {
 		EditorInventoryIniter.initMainInventory();
 
 		SubCommandRegister.registerSubCommands();/** 注册子命令呀 **/
-		instance = this;
 		OpCmdExecutor.init();
 
 		if (!Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
@@ -71,5 +72,7 @@ public class RevivedLocyItem extends JavaPlugin {
 			enableOverParticleLib = true;
 		}
 		new Metrics(this);
+
+		VersionHelper.getLatestVersion();
 	}
 }

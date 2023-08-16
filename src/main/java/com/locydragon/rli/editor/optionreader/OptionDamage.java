@@ -3,6 +3,7 @@ package com.locydragon.rli.editor.optionreader;
 import com.locydragon.rli.api.LocyItem;
 import com.locydragon.rli.api.LocyItemAPI;
 import com.locydragon.rli.util.ExpressionHelper;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Player;
@@ -33,7 +34,6 @@ public class OptionDamage implements Listener {
 			return;
 		}
 		if (moTVector.contains(e.hashCode())) {
-			e.setDamage(e.getDamage());
 			return;
 		}
 		if (e.getDamager() instanceof Player) {

@@ -65,7 +65,7 @@ public class ItemConfigReader {
 				config.set("ExampleItem.Skills", ListBuilder.buildList("skill ~ name=ExampleSkillReach @LEFT",
 						"msg ~ msg=&7Slurp~ @LEFT",
 						"skill ~ name=ExampleSkill @RIGHT"));
-				config.set("ExampleItem.Heat", ListBuilder.buildList("line ~ t=FLAME",
+				config.set("ExampleItem.Hit", ListBuilder.buildList("line ~ t=FLAME",
 						"particle ~ n=HeadCircle @target",
 						"lightning ~ @target"));
 				config.save(genFile);

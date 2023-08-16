@@ -13,6 +13,8 @@ import org.bukkit.OfflinePlayer;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +27,23 @@ public class ItemConfigReadFactory {
 			try {
 				item = new LocyItem(key, config.getString(key + ".name")
 						, returnMaterial(config.getString(key + ".id")));
+				ItemStack target = item.getItem();
+				ItemMeta meta = target.getItemMeta();
+				int customData = config.getInt(key + ".custommodeldata", -1);
+				if (customData < 0) {
+					customData = config.getInt(key + ".CustomModelData", -1);
+				}
+				if (customData > 0) {
+					try {
+						meta.setCustomModelData(customData);
+					} catch (Throwable e) {
+						RevivedLocyItem.instance.getLogger().info("你的版本不支持CustomModelData.(版本需要大于1.14)");
+					}
+				}
+				target.setItemMeta(meta);
+				item.setBuildItem(target);
 			} catch (Exception e) {
+				e.printStackTrace();
 				for (OfflinePlayer p : Bukkit.getOperators()) {
 					if (p.isOnline()) {
 						((Player)p).sendMessage(Colors.color("&cRli加载错误：在文件 &e" + config.getName()));
@@ -85,7 +103,12 @@ public class ItemConfigReadFactory {
 			//TODO 属性
 			OptionReaders.read(config.getStringList(key + ".Options"), item);
 
+			//??? Why Heat? -> Im sb.
 			for (String object : config.getStringList(key + ".Heat")) {
+				item.putHeatAfter(object);
+			}
+
+			for (String object : config.getStringList(key + ".Hit")) {
 				item.putHeatAfter(object);
 			}
 			LocyItemAPI.registerItem(item);
@@ -94,10 +117,11 @@ public class ItemConfigReadFactory {
 	}
 
 	public static Material returnMaterial(String info) {
+		info = info.trim();
 		if (isInt(info)) {
 			return Material.getMaterial(MaterialOld.getMaterial(Integer.valueOf(info)).toString());
 		}
-		return Material.getMaterial(info.toUpperCase());
+		return Material.getMaterial(info);
 	}
 
 	public static boolean isInt(String i) {

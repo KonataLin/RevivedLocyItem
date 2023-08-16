@@ -1,10 +1,7 @@
 package com.locydragon.rli.util.old;
 
 import com.google.common.collect.Maps;
-import java.lang.reflect.Constructor;
 import java.util.Map;
-import org.apache.commons.lang.Validate;
-import org.bukkit.Material;
 import org.bukkit.material.Banner;
 import org.bukkit.material.Bed;
 import org.bukkit.material.Button;

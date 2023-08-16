@@ -8,6 +8,10 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
+/**总API类
+ * @author LocyDragon
+ * @version 1.3.3
+ */
 public class LocyItemAPI {
 	private static ConcurrentHashMap<String,LocyItem> itemStack = new ConcurrentHashMap<>();
 	private static ConcurrentHashMap<String,ParticleUnit> unitMap = new ConcurrentHashMap<>();
