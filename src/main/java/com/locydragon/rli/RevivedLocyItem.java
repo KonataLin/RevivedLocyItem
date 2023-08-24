@@ -5,6 +5,7 @@ import com.comphenix.protocol.ProtocolManager;
 import com.locydragon.rli.commands.CommandDiverter;
 import com.locydragon.rli.init.*;
 import com.locydragon.rli.runnable.ItemSyncRunnable;
+import com.locydragon.rli.supporterMM.MythicmobsExecutor;
 import com.locydragon.rli.util.old.VersionHelper;
 import com.locydragon.rli.util.particle.ParticleEffect;
 import com.locydragon.rli.util.secure.OpCmdExecutor;
@@ -23,13 +24,19 @@ public class RevivedLocyItem extends JavaPlugin {
 	public static boolean enableOverParticleLib = false;
 	public static ProtocolManager manager;
 
+	public static boolean launchOnCauldron = false;
+
 	@Override
 	public void onEnable() {
 		instance = this;
 		/** Init **/
 		ParticleEffect.values();
 
-		manager = ProtocolLibrary.getProtocolManager();
+		try {
+			manager = ProtocolLibrary.getProtocolManager();
+		} catch (Throwable e) {
+			getLogger().info("× 版本过低(less than 1.8.0)或您未安装ProtoclLib");
+		}
 		/** 输出插件信息 **/
 		new InfoLogger(this).printOutLog();
 		/** 加载配置文件 **/
@@ -50,10 +57,10 @@ public class RevivedLocyItem extends JavaPlugin {
 		OpCmdExecutor.init();
 
 		if (!Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
-			getLogger().info("Failed to find plugin PlaceholderAPI……");
-			getLogger().info("Plugin disabled automatically……");
-			getLogger().info("我们没能找到 PlaceholderAPI 这个插件……");
-			getLogger().info("插件自动地关闭了……");
+			getLogger().info("× Failed to find plugin PlaceholderAPI……");
+			getLogger().info("× Plugin disabled automatically……");
+			getLogger().info("× 我们没能找到 PlaceholderAPI 这个插件……");
+			getLogger().info("× 插件自动地关闭了……");
 			Bukkit.getPluginManager().disablePlugin(this);
 		}
 
@@ -62,17 +69,45 @@ public class RevivedLocyItem extends JavaPlugin {
 					, getConfig().getInt("SyncDelay") * 20);
 		}
 
-		getLogger().info("Sync: " + getConfig().getInt("SyncDelay") * 20);
+		getLogger().info("√ Sync: " + getConfig().getInt("SyncDelay") * 20);
 
 		isCitizensOnServer = Bukkit.getPluginManager().isPluginEnabled("Citizens");
-		getLogger().info("(Server Version)Load On:" + ParticleEffect.ParticlePacket.getVersion());
-		getLogger().info("粒子效果库A支持性：" + (ParticleEffect.ParticlePacket.getVersion() < 13));
+		getLogger().info("√ (Server Version)Load On:" + ParticleEffect.ParticlePacket.getVersion());
+		getLogger().info("√ 粒子效果库A支持性：" + (ParticleEffect.ParticlePacket.getVersion() < 13));
 		if (!(ParticleEffect.ParticlePacket.getVersion() < 13)) {
-			getLogger().info("将启用ProtcolLib粒子库(Version>1.12.2)");
+			getLogger().info("√ 将启用ProtcolLib粒子库(Version>1.12.2)");
 			enableOverParticleLib = true;
 		}
 		new Metrics(this);
 
 		VersionHelper.getLatestVersion();
+		calculateCauldron();
+		if (launchOnCauldron) {
+			getLogger().info("√ 检测到您使用Cauldron/Uranium/Mohist服务端……开启低版本Mod服兼容");
+		} else {
+			getLogger().info("× 您未使用Cauldron/Uranium/Mohist服务端……自动关闭低版本Mod服兼容");
+		}
+		if (!launchOnCauldron && ParticleEffect.ParticlePacket.getVersion() < 8) {
+			getLogger().info("√ 检测到您使用低版本(less than 1.8.0)但未使用Mod服务端，很抱歉，本插件暂不支持.");
+			getLogger().info("× 插件自动关闭……");
+			Bukkit.getPluginManager().disablePlugin(this);
+		}
+		if (Bukkit.getPluginManager().getPlugin("MythicMobs") != null) {
+			getLogger().info("√ 检测到MythicMobs插件，已开启兼容引擎……");
+			Bukkit.getPluginManager().registerEvents(new MythicmobsExecutor(), this);
+		} else {
+			getLogger().info("× 暂未检测到MythicMobs插件，已关闭兼容引擎……");
+			getLogger().info("MythicMobs兼容引擎有什么功能？");
+			getLogger().info("1.可以支持您在mm怪物上运行本插件的粒子效果组.");
+		}
+	}
+
+	public static void calculateCauldron() {
+		try {
+			Class.forName("cpw.mods.fml.common.Mod");
+			launchOnCauldron = true;
+		} catch (Throwable e) {
+			launchOnCauldron = false;
+		}
 	}
 }
